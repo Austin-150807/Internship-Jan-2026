@@ -8,18 +8,18 @@ export const RESPONSE = {
     message: "is invalid",
   },
 
-  ALER: {
+  ALREADY_EXISTS: {
     code: 203,
-    message: "is invalid",
+    message: "already exists",
   },
 
-  INVALID: {
-    code: 203,
-    message: "is invalid",
+  SUCCESS: {
+    code: 200,
+    message: "Everything is ok",
   },
 
-  INVALID: {
-    code: 203,
-    message: "is invalid",
+  UNKNOWN_ERR: {
+    code: 500,
+    message: "Something went wrong",
   },
 };
