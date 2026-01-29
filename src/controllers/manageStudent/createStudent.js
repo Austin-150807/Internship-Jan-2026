@@ -1,5 +1,7 @@
 import { Router } from "express";
 import studentModel from "../../models/studentModel.js";
+import { RESPONSE } from "../../config/global.js";
+import { send, setErrMsg } from "../../helper/responseHelper.js";
 
 const router = Router();
 
@@ -11,24 +13,15 @@ export default router.post("/", async (req, res) => {
     console.log("email = ", email);
 
     if (!name || name == undefined) {
-      return res.send({
-        code: 201,
-        message: "name is mandatory",
-      });
+      return send(res, setErrMsg("Name", RESPONSE.REQUIRED));
     }
 
     if (!rollno || rollno == undefined) {
-      return res.send({
-        code: 201,
-        message: "rollno is mandatory",
-      });
+      return send(res, setErrMsg("Rollno", RESPONSE.REQUIRED));
     }
 
     if (!email || email == undefined) {
-      return res.send({
-        code: 201,
-        message: "email is mandatory",
-      });
+      return send(res, setErrMsg("Name", RESPONSE.REQUIRED));
     }
 
     let isEmailVaild = String(email).match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
