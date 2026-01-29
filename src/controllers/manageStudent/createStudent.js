@@ -27,10 +27,7 @@ export default router.post("/", async (req, res) => {
     let isEmailVaild = String(email).match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
     if (isEmailVaild == null) {
-      return res.send({
-        code: 203,
-        message: "Invalid email format",
-      });
+      return send(res, setErrMsg("Email", RESPONSE.INVALID));
     }
 
     let isRollnoExists = await studentModel.findOne({ rollno: rollno });

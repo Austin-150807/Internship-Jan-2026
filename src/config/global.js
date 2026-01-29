@@ -1,10 +1,25 @@
 export const RESPONSE = {
   REQUIRED: {
     code: 201,
-    message: "name is mandatory",
+    message: "is mandatory",
   },
-  REQUIRED: {
+  INVALID: {
     code: 203,
-    message: "Invalid email format",
+    message: "is invalid",
+  },
+
+  ALER: {
+    code: 203,
+    message: "is invalid",
+  },
+
+  INVALID: {
+    code: 203,
+    message: "is invalid",
+  },
+
+  INVALID: {
+    code: 203,
+    message: "is invalid",
   },
 };
