@@ -33,19 +33,13 @@ export default router.post("/", async (req, res) => {
     let isRollnoExists = await studentModel.findOne({ rollno: rollno });
 
     if (isRollnoExists) {
-      return res.send({
-        code: 202,
-        message: "rollno already exists",
-      });
+      return send(res, setErrMsg("Rollno", RESPONSE.ALREADY_EXISTS));
     }
 
     let isEmailExists = await studentModel.findOne({ email: email });
 
     if (isEmailExists) {
-      return res.send({
-        code: 202,
-        message: "email already exists",
-      });
+      return send(res, setErrMsg("Email", RESPONSE.ALREADY_EXISTS));
     }
 
     await studentModel.create({
@@ -54,15 +48,9 @@ export default router.post("/", async (req, res) => {
       email: email,
     });
 
-    return res.send({
-      code: 200,
-      message: "student created succesfully",
-    });
+    return res.send(res, RESPONSE.SUCCESS);
   } catch (error) {
     console.log("Create Student", error);
-    return res.send({
-      code: 500,
-      message: "Somethig went wrong",
-    });
+    return res.send(res,RESPONSE.UNKNOWN_ERR);
   }
 });
