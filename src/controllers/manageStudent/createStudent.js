@@ -48,9 +48,9 @@ export default router.post("/", async (req, res) => {
       email: email,
     });
 
-    return res.send(res, RESPONSE.SUCCESS);
+    return send(res, RESPONSE.SUCCESS);
   } catch (error) {
     console.log("Create Student", error);
-    return res.send(res,RESPONSE.UNKNOWN_ERR);
+    return res.send(res, RESPONSE.UNKNOWN_ERR);
   }
 });
